@@ -1,13 +1,25 @@
 import React, {Component} from "react";
-import Personne from "./Personne";
+import Personne from "./components/Personnes/Personne";
+import Horloge from "./containers/Horloge/Horloge";
 
 class App extends Component {
+
+    state = {
+        personnes : [
+            {nom: "Michel", age: 31, sexe: true},
+            {nom: "Tia", age: 25, sexe: false},
+            {nom: "Mika", age: 11, sexe: true},
+
+        ]
+    }
+
     render() {
         return (
             <>
-                <Personne nom="Jeremy" age="12" sexe="M"/>
-                <Personne nom="Julien" age="23" sexe="M"/>
-                <Personne nom="Michel" age="45" sexe="F"/>
+                <Horloge />
+                <Personne {...this.state.personnes[0]}/>
+                <Personne {...this.state.personnes[1]}/>
+                <Personne {...this.state.personnes[2]}/>
             </>
         )
     }

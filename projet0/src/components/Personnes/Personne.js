@@ -1,0 +1,17 @@
+import React, {Component} from "react";
+import AgePersonne from "./AgePersonne/AgePersonnes";
+
+class Personne extends Component {
+    render() {
+        return (
+            <>
+                <h1>{this.props.nom}</h1>
+                <AgePersonne age = {this.props.age}/>
+                <p>Sexe {this.props.sexe ? "homme" : "femme"}</p>
+            </>
+        );
+    }
+    
+}
+
+export default Personne;
