@@ -6,7 +6,7 @@ class Personne extends Component {
         return (
             <>
                 <h1>{this.props.nom}</h1>
-                <p>{this.props.children}</p>
+                {this.props.children}
                 <p>Sexe {this.props.sexe ? "homme" : "femme"}</p>
                 <button onClick={this.props.click}>Anniverssaire</button>
             </>
