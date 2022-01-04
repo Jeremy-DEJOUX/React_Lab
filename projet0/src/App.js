@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Personne from "./components/Personnes/Personne";
 import Horloge from "./containers/Horloge/Horloge";
+import AgePersonne from "./components/Personnes/AgePersonne/AgePersonnes";
 
 class App extends Component {
 
@@ -28,9 +29,18 @@ class App extends Component {
             <>
                 <button onClick={this.anniverssaireHandler}>Anniverssaire</button>
                 <Horloge />
-                <Personne {...this.state.personnes[0]} click={() => this.anniverssaireHandler(0)}/>
-                <Personne {...this.state.personnes[1]} click={() => this.anniverssaireHandler(1)}/>
-                <Personne {...this.state.personnes[2]} click={() => this.anniverssaireHandler(2)}/>
+
+                <Personne {...this.state.personnes[0]} click={() => this.anniverssaireHandler(0)}>
+                    <AgePersonne age={this.state.personnes[0].age}/>
+                </Personne>
+
+                <Personne {...this.state.personnes[1]} click={() => this.anniverssaireHandler(1)}>
+                    <AgePersonne age={this.state.personnes[1].age}/>
+                </Personne>
+
+                <Personne {...this.state.personnes[2]} click={() => this.anniverssaireHandler(2)}>
+                    <AgePersonne age={this.state.personnes[2].age}/>
+                </Personne>
             </>
         )
     }
