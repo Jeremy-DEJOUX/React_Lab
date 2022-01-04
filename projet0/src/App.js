@@ -13,9 +13,18 @@ class App extends Component {
         ]
     }
 
+    anniverssaireHandler = () => {
+        const newPersonnes = [...this.state.personnes];
+        newPersonnes[0].age++;
+        newPersonnes[1].age++;
+        newPersonnes[2].age++;
+        this.setState({personnes:newPersonnes});
+    }
+
     render() {
         return (
             <>
+                <button onClick={this.anniverssaireHandler}>Anniverssaire</button>
                 <Horloge />
                 <Personne {...this.state.personnes[0]}/>
                 <Personne {...this.state.personnes[1]}/>
