@@ -13,12 +13,14 @@ class App extends Component {
         ]
     }
 
-    anniverssaireHandler = () => {
-        const newPersonnes = [...this.state.personnes];
-        newPersonnes[0].age++;
-        newPersonnes[1].age++;
-        newPersonnes[2].age++;
-        this.setState({personnes:newPersonnes});
+    anniverssaireHandler = (numPersonne) => {
+        const newPersonne = {...this.state.personnes[numPersonne]}; //on gènere une nouvelle personnes
+        newPersonne.age++; //On ajoute 1 à l'age de la nouvelle personne
+
+        const newTab = [...this.state.personnes]; //On gènere un nouveau tableau
+        newTab[numPersonne] = newPersonne; //On change la personne
+        this.setState({personnes : newTab}); //On active le changement
+
     }
 
     render() {
@@ -26,9 +28,9 @@ class App extends Component {
             <>
                 <button onClick={this.anniverssaireHandler}>Anniverssaire</button>
                 <Horloge />
-                <Personne {...this.state.personnes[0]}/>
-                <Personne {...this.state.personnes[1]}/>
-                <Personne {...this.state.personnes[2]}/>
+                <Personne {...this.state.personnes[0]} click={() => this.anniverssaireHandler(0)}/>
+                <Personne {...this.state.personnes[1]} click={() => this.anniverssaireHandler(1)}/>
+                <Personne {...this.state.personnes[2]} click={() => this.anniverssaireHandler(2)}/>
             </>
         )
     }
