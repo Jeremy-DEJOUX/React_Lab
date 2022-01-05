@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,100;1,400&display=swap');
+
+.policeTitre{
+    font-family: 'Prompt', sans-serif;
+}
+
+.policeTitre:hover{
+    color: orange!important;
+}
