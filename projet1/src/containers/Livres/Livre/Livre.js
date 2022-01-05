@@ -7,7 +7,7 @@ const Livre = (props) => (
         <td>{props.auteur}</td>
         <td>{props.nbPages}</td>
         <td><Bouton typeBtn="btn-warning" click={() => console.log('Modification')}>Modifier</Bouton></td>
-        <td><Bouton typeBtn="btn-danger" click={() => console.log('Suppression')}>Supprimer</Bouton></td>
+        <td><Bouton typeBtn="btn-danger" click={props.suppression}>Supprimer</Bouton></td>
     </>
 );
 

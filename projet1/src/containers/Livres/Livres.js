@@ -10,6 +10,17 @@ class Livres extends Component {
         ]
       }
 
+    handlerSuppressionLivre = (id) => {
+        const livreIndexTab = this.state.livres.findIndex(l => {
+            return l.id === id;
+        });
+
+        const newLivres = [...this.state.livres];
+        newLivres.splice(livreIndexTab,1);
+
+        this.setState({livres:newLivres});
+    }
+
     render (){
         return (
             <table className="table text-center">
@@ -30,6 +41,7 @@ class Livres extends Component {
                                         titre={livres.titre}
                                         auteur={livres.auteur}
                                         nbPages={livres.nbPages}
+                                        suppression={() => this.handlerSuppressionLivre(livres.id)}
                                     />
                                 </tr>
                             );
