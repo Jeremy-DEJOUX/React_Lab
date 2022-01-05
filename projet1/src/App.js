@@ -4,12 +4,22 @@ import Bouton from './components/Boutons/Bouton';
 import Livres from './containers/Livres/Livres';
 
 class App extends Component{
+  state =  {
+    ajoutLivre : false
+  };
+
+  handlerClicAjoutLivre = () => {
+    this.setState((oldState, props) => {
+      return {ajoutLivre: !oldState.ajoutLivre}
+    });
+  }
+
   render () {
     return (
       <div className="container">
         <TitreH1>Pages lisant les livres</TitreH1>
-        <Livres></Livres>
-        <Bouton typeBtn="btn-success" css="w-100" click={() => console.log("Ajout")}>Ajouter</Bouton>
+        <Livres ajoutLivre={this.state.ajoutLivre}></Livres>
+        <Bouton typeBtn="btn-success" css="w-100" click={this.handlerClicAjoutLivre}> { !this.state.ajoutLivre ? "Ajouter" : "Ferme l'ajout"} </Bouton>
       </div>
     );
   }
