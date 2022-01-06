@@ -8,7 +8,7 @@ class App extends Component{
     ajoutLivre : false
   };
 
-  handlerClicAjoutLivre = () => {
+  handleClicAjoutLivre = () => {
     this.setState((oldState, props) => {
       return {ajoutLivre: !oldState.ajoutLivre}
     });
@@ -19,7 +19,7 @@ class App extends Component{
       <div className="container">
         <TitreH1>Pages lisant les livres</TitreH1>
         <Livres ajoutLivre={this.state.ajoutLivre}></Livres>
-        <Bouton typeBtn="btn-success" css="w-100" click={this.handlerClicAjoutLivre}> { !this.state.ajoutLivre ? "Ajouter" : "Ferme l'ajout"} </Bouton>
+        <Bouton typeBtn="btn-success" css="w-100" click={this.handleClicAjoutLivre}> { !this.state.ajoutLivre ? "Ajouter" : "Ferme l'ajout"} </Bouton>
       </div>
     );
   }
