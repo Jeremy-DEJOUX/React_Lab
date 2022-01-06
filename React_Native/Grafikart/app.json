@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Grafikart",
+    "slug": "Grafikart",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "Grafikart"
+}
