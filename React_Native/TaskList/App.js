@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
 
-export default function App() {
+import TasksScreen from './src/screens/Tasks';
+
+const App = ({children, title}) => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <SafeAreaView style={styles.AndroidSafeArea}>
+      <TasksScreen />
+    </SafeAreaView>
+      
+  )
+};
 
 const styles = StyleSheet.create({
-  container: {
+  AndroidSafeArea: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
+  }
 });
+
+export default App;
